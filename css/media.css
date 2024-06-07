@@ -447,6 +447,9 @@
     .page-catalog .billbord__image {
         top: 3%;
     }
+    .page-card + .section-elements {
+        padding-top: 0;
+    }
 }
 
 /* Small Devices, Tablets */
