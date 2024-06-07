@@ -57,7 +57,7 @@
     }
     .footer__bottom {
         padding-top: 13px;
-        padding-bottom: 140px;
+        padding-bottom: 85px;
         display: block;
     }
     .footer__right {
@@ -93,8 +93,9 @@
     .footer::after {
         width: 150px;
         height: 121px;
-        bottom: 105px;
+        bottom: 45px;
         right: 18px;
+        z-index: 0;
     }
     .header__wrapper {
         justify-content: space-between;
