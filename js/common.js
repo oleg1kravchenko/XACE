@@ -110,8 +110,6 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			speed: 200,
-			fade: true,
-			cssEase: 'linear',
 			prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
 			nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
 		});
