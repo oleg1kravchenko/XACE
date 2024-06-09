@@ -35,7 +35,7 @@ if (ScrollTrigger.isTouch !== 1) {
 		})
 	})
 
-	let itemsR = gsap.utils.toArray('.element img')
+	let itemsR = gsap.utils.toArray('.element .row > div > img')
 
 	itemsR.forEach(item => {
 		gsap.fromTo(item, { opacity: 0, x: 50 }, {
@@ -98,16 +98,38 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 
 	//слайдер
 
-	$('.slider-catalog').slick({
-		arrows: false,
-		dots: true,
-		infinite: true,
-		touchThreshold: 1000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
-		nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
+
+    $('.slider-catalog').each(function() {
+		var sliderCatalog = $(this);
+		sliderCatalog.slick({
+			arrows: false,
+			dots: true,
+			infinite: false,
+			appendDots: sliderCatalog.siblings('.pagination-container').find(".pagination"),
+			touchThreshold: 1000,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			speed: 200,
+			fade: true,
+			cssEase: 'linear',
+			prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
+			nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
+		});
+		$(document).on('mouseenter', '.slick-dots li', function() {
+			if (!$(this).hasClass('slick-active')) {
+			  var slider = $(this).parents(".item-slider").find('.slider-catalog');
+			  var index = $(this).index();
+			  slider.slick('slickGoTo', index);
+			}
+		  });
 	});
+
+	
+
+
+
+
+	
 
 	$('.slider-for').slick({
 		arrows: false,
@@ -122,8 +144,11 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 	});
 
 
-	$('.slider-nav').slick({
-		arrows: false,
+	var scrollCount = 0;
+	var scrollTimeout;
+
+	var slider = $('.slider-nav').slick({
+		arrows: true,
 		dots: false,
 		infinite: false,
 		slidesToShow: 6,
@@ -133,8 +158,8 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 		asNavFor: '.slider-for',
 		touchThreshold: 1000,
 		focusOnSelect: true,
-		prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
-		nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
+		prevArrow: '<div class="slick-prev slick-arrow"><i class="fal fa-chevron-up"></i><div/>',
+		nextArrow: '<div class="slick-next slick-arrow"><i class="fal fa-chevron-down"></i><div/>',
 		responsive: [
 			{
 				breakpoint: 480,
@@ -146,6 +171,28 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 			}
 		]
 	});
+
+	slider.on('wheel', function(e) {
+        e.preventDefault();
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          scrollCount = 0;
+        }, 200);
+
+        if (scrollCount) return;
+        scrollCount = 1;
+
+        if (e.originalEvent.deltaY < 0) {
+          slider.slick('slickPrev');
+        } else {
+          slider.slick('slickNext');
+        }
+      });
+
+
+
+
 
 	$(".item-driver__head").click(function() {
 		$(this).parents(".col-lg-6").siblings().find(".item-driver__content").slideUp(200);

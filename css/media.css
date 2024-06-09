@@ -20,7 +20,7 @@
         width: 250px;
     }
     .billbord__content {
-        height: 400px;
+        height: 520px;
         padding-top: 150px;
     }
     .header {
@@ -51,13 +51,14 @@
         padding-top: 30px;
         padding-bottom: 15px;
         background-size: 300px auto;
+        background: #000;
     }
     .footer__logo img {
         width: 150px;
     }
     .footer__bottom {
         padding-top: 13px;
-        padding-bottom: 85px;
+        padding-bottom: 30px;
         display: block;
     }
     .footer__right {
@@ -96,6 +97,7 @@
         bottom: 45px;
         right: 18px;
         z-index: 0;
+        display: none;
     }
     .header__wrapper {
         justify-content: space-between;
@@ -230,6 +232,7 @@
     .slick-dots li {
         margin: 0 2px;
     }
+    .item-catalog .slick-dots,
     .slider-catalog .slick-dots {
         bottom: 15px;
     }
@@ -279,6 +282,7 @@
     .item-catalog .col-lg-5 {
         padding: 0 35px;
     }
+    .price-main span,
     .price-old span {
         font-size: 13px;
         padding: 0 5px;
@@ -450,6 +454,83 @@
     }
     .page-card + .section-elements {
         padding-top: 0;
+    }
+    .card-right {
+        margin-left: 0;
+    }
+    .fancybox-slide--html .fancybox-close-small {
+        color: currentColor;
+        padding: 0px;
+        right: 3px;
+        top: 5px;
+        width: 32px;
+        height: 32px;
+    }
+    .links-card {
+        gap: 15px;
+    }
+    .element img {
+        transform: none !important;
+    }
+    .title-common {
+        font-size: 34px;
+        margin-bottom: 20px;
+    }
+    .element__icon img {
+        width: 49px;
+    }
+    .title-catalog {
+        font-size: 30px;
+        justify-content: center;
+    }
+    .title-catalog img {
+        width: 89px;
+        margin-right: 7px !important;
+    }
+    .element__icon {
+        display: none;
+    }
+    .descr-catalog {
+        font-size: 15px;
+    }
+    .partners__item img {
+        height: 32px;
+    }
+    .partners__wrap {
+        gap: 15px;
+    }
+    .partners__title {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    .title-common[data-lag="0"] {
+        margin-top: 100px;
+    }
+    .slider-nav .slick-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        transform: rotate(-90deg) !important;
+        top: 50%;
+        bottom: auto;
+        right: auto;
+        margin-top: -15px;
+        left: -15px;
+    }
+    .slider-nav .slick-next {
+        right: -15px;
+        left: auto;
+    }
+    .content_frontpage {
+        background-position: 50% -200px;
+        background-size: 900px;
+    }
+    .billbord__image {
+        z-index: 0;
+    }
+    .billbord__content {
+        position: relative;
+        z-index: 1;
     }
 }
 
