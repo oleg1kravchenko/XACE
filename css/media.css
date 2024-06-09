@@ -590,9 +590,6 @@
     .wrapper * {
         will-change: transform;
     }
-    .item-driver__head:hover {
-        background: #0fbc49;
-    }
     .row_drivers > div:hover {
         z-index: 2;
     }
