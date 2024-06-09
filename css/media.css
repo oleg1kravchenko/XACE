@@ -525,7 +525,7 @@
         background-position: 50% -200px;
         background-size: 900px;
     }
-    .billbord__image {
+    .billbord .billbord__image {
         z-index: 0;
     }
     .billbord__content {
