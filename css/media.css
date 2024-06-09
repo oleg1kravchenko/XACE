@@ -20,8 +20,8 @@
         width: 250px;
     }
     .billbord__content {
-        height: 520px;
-        padding-top: 150px;
+        height: 420px;
+        padding-top: 180px;
     }
     .header {
         padding: 10px 0;
@@ -503,8 +503,9 @@
         font-size: 30px;
         margin-bottom: 15px;
     }
-    .title-common[data-lag="0"] {
-        margin-top: 100px;
+    .billbord__head[data-lag="0"],
+    .billbord__image[data-lag="0"] {
+        transform: none !important;
     }
     .slider-nav .slick-arrow {
         width: 30px;
