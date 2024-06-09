@@ -532,6 +532,9 @@
         position: relative;
         z-index: 1;
     }
+    .pagination_nav {
+        display: none;
+    }
 }
 
 /* Small Devices, Tablets */
