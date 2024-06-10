@@ -660,7 +660,7 @@ form {
 }
 .item-driver {
 	margin-bottom: 2.9167vw;
-	position: relative;
+	position: relative; 
 }
 .item-driver__head:hover {
 	background: #0fbc49;

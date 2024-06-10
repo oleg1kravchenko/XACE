@@ -584,7 +584,7 @@
         display: flex !important;
     }
     .menu-overlay {
-        display: none !important;
+        display: none !important; 
     }
     .wrapper,
     .wrapper * {
