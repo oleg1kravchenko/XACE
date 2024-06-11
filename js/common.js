@@ -16,7 +16,7 @@ if (ScrollTrigger.isTouch !== 1) {
 		scrollTrigger: {
 			trigger: '.billbord',
 			start: 'center',
-			end: '820',
+			end: '1500',
 			scrub: true
 		}
 	})
@@ -54,6 +54,45 @@ if (ScrollTrigger.isTouch !== 1) {
 
 
 //прилипающие меню
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('.header').outerHeight();
+
+$(window).scroll(function(event){
+	didScroll = true;
+});
+
+setInterval(function() {
+	if (didScroll) {
+		hasScrolled();
+		didScroll = false;
+	}
+}, 250);
+
+function hasScrolled() {
+	var st = $(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+    	return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('.header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+        	$('.header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+
 var $menu = $(".header");
 $(window).scroll(function(){
   if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
@@ -138,7 +177,8 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		asNavFor: '.slider-nav',
-		touchThreshold: 1000,
+		speed: 100,
+		touchThreshold: 100,
 		prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
 		nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
 	});
@@ -156,7 +196,8 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 		vertical: true,
 		verticalSwiping: true,
 		asNavFor: '.slider-for',
-		touchThreshold: 1000,
+		speed: 100,
+		touchThreshold: 100,
 		focusOnSelect: true,
 		prevArrow: '<div class="slick-prev slick-arrow"><i class="fal fa-chevron-up"></i><div/>',
 		nextArrow: '<div class="slick-next slick-arrow"><i class="fal fa-chevron-down"></i><div/>',

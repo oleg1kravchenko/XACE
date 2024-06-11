@@ -32,6 +32,7 @@ body {
 	margin: 0;
 	background: #000;
 	color: #fff;
+	overscroll-behavior: none;
 }
 button {
 	cursor: pointer;
@@ -103,10 +104,24 @@ form {
 	width: 100%;
 	z-index: 10;
 	transition: all 1s;
+	will-change: initial !important;
 }
 .header.fixed {
 	padding: 0.781vw 0;
-	background: #000;
+	background: rgba(0, 0, 0, 0.7);
+}
+.header.fixed .menu {
+    font-size: 2vw;
+}
+.header.fixed .logo img {
+    width: 4.8vw;
+}
+.header.nav-up {
+	transform: translateY(-10.204vw);
+	box-shadow: none;
+}
+.header.nav-down {
+	transform: translateY(0px);
 }
 .header__wrapper {
 	display: flex;
@@ -114,12 +129,14 @@ form {
 }
 .logo img {
 	width: 5.625vw;
+	transition: all 1s;
 }
 .menu {
 	font-size: 2.448vw;
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
+	transition: all 1s;
 }
 .menu a {
 	color: #fff;
@@ -772,6 +789,7 @@ form {
 	background-image: url(../img/bg_front.png);
 	background-repeat: repeat-y;
 	background-position: center;
+	background-size: 100% auto;
 }
 
 .title-common {
@@ -792,6 +810,7 @@ form {
 }
 .title-catalog {
 	font-size: 4.79vw;
+	margin-top: 4vw;
 	line-height: 130%;
 	text-align: center;
 	color: #d31313;
