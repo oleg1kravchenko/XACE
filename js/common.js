@@ -181,6 +181,15 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 		touchThreshold: 100,
 		prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
 		nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					speed: 500,
+					touchThreshold: 500,
+				}
+			}
+		]
 	});
 
 
@@ -203,10 +212,12 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 		nextArrow: '<div class="slick-next slick-arrow"><i class="fal fa-chevron-down"></i><div/>',
 		responsive: [
 			{
-				breakpoint: 480,
+				breakpoint: 992,
 				settings: {
 					vertical: false,
 					verticalSwiping: false,
+					speed: 500,
+					touchThreshold: 500,
 					slidesToShow: 4,
 				}
 			}
