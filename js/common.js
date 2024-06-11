@@ -230,7 +230,7 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(function() {
           scrollCount = 0;
-        }, 200);
+        }, 10);
 
         if (scrollCount) return;
         scrollCount = 1;
